@@ -1,0 +1,31 @@
+PROCEDURE dot_product(VAR ps: INTEGER, v1: ARRAY OF INTEGER, v2: ARRAY OF INTEGER, n: INTEGER)
+VAR
+    i : INTEGER
+BEGIN
+    ps := 0
+    FOR i FROM 0 TO n - 1 DO
+        ps := ps + (v1[i] * v2[i])
+    END_FOR
+END_PROCEDURE
+
+ALGORITHM check_orthogonal_vectors
+VAR
+    n, i, ps : INTEGER
+    v1, v2 : ARRAY OF INTEGER
+    orthogonal : BOOLEAN
+
+BEGIN
+    orthogonal := TRUE
+    FOR i FROM 0 TO n - 1 DO
+        dot_product(ps, v1[i], v2[i], LENGTH(v1[i]))
+        IF ps <> 0 THEN
+            orthogonal := FALSE
+        END_IF
+    END_FOR
+
+    IF orthogonal THEN
+        Write("The vectors are orthogonal.")
+    ELSE
+        Write("The vectors are not orthogonal.")
+    END_IF
+END_ALGORITHM
