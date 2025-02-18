@@ -1,37 +1,34 @@
 ALGORITHM sumOfDistinctElements
 VAR
-    set1, set2 : ARRAY OF INTEGER
-    sum : INTEGER
-    i, j : INTEGER
-
+    set1, set2: array of integer
+    sum:integer
+    i,j:integer
 BEGIN
-    // Step 1: Initialize sum
-    sum := 0
-
-    // Step 2: Add elements from set1 that are not in set2
-    FOR i FROM 0 TO LENGTH(set1) - 1 DO
-        IF NOT (set1[i] IN set2) THEN
-            sum := sum + set1[i]
+    // step1:Initialize sum
+    sum:=0
+    // ste2:Add elemts from set1 that r not in set2
+    FOR i FROM 0 TO length(set1)-1 DO
+        IF NOT (set1[i] in set2) THEN
+            sum:=sum+set1[i]
         END_IF
     END_FOR
-
-    // Step 3: Add elements from set2 that are not in set1
-    FOR j FROM 0 TO LENGTH(set2) - 1 DO
-        IF NOT (set2[j] IN set1) THEN
-            sum := sum + set2[j]
+    // step3:Add elements from set2 that r not in set1
+    FOR j FROM 0 TO length(set2)-1 DO
+        IF NOT (set2[j] in set1) THEN
+            sum:=sum+set2[j]
         END_IF
     END_FOR
 
     RETURN sum
-END_ALGORITHM
+END
 
+// test algo
 ALGORITHM test_sumOfDistinctElements
 VAR
-    set1 : ARRAY OF INTEGER := [3, 1, 7, 9]
-    set2 : ARRAY OF INTEGER := [2, 4, 1, 9, 3]
-    result : INTEGER
-
+    set1:array of integer:=[3,1,7,9]
+    set2:array of integer:=[2,4,1,9,3]
+    result:integer
 BEGIN
-    result := sumOfDistinctElements(set1, set2)
-    Write(result)  // Output: 13 (distinct elements: 4, 7, 2)
-END_ALGORITHM
+    result:=sumOfDistinctElements(set1,set2)
+    write(result) //output:13 (distinct elements:4,7,2)
+END
